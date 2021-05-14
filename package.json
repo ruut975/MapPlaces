@@ -1,0 +1,30 @@
+{
+  "name": "lamiaplacesapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruut975/MapPlaces.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruut975/MapPlaces/issues"
+  },
+  "homepage": "https://github.com/ruut975/MapPlaces#readme",
+  "dependencies": {
+    "prettier": "^2.3.0",
+    "sanitize.css": "^12.0.1"
+  },
+  "devDependencies": {
+    "@snowpack/plugin-sass": "^1.4.0",
+    "eslint": "^7.26.0",
+    "sass": "^1.32.13",
+    "snowpack": "^3.4.0"
+  }
+}
