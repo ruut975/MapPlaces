@@ -9,22 +9,12 @@
   </head>
   <body>
     <div id="map"></div>
+    <form id="searchForm"><input type="text" id="searchBox" placeholder="Search Places..."></input></form>
+    <div id="places">
+      <div id="toggleList">-</div>
+      <ul id="placesList"></ul>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYZghoLbAOnszANnABggZ4oTqXoihGxU" async></script>
     <script type="module" src="../src/js/index.js"></script>
-    <script>function initMap() {
-      var map;
-      
-      const myLocation = { lat: 65.01236, lng: 25.46816 };
-      // Map options
-      options = {
-        center: myLocation,
-        zoom: 11,
-        disableDefaultUI: true,
-        zoomControl: true,
-      };
-    
-      // New Map
-      map = new google.maps.Map(document.getElementById("map"), options);
-    }</script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYZghoLbAOnszANnABggZ4oTqXoihGxU&callback=initMap"></script>
   </body>
 </html>
