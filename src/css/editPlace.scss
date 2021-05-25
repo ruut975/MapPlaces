@@ -1,0 +1,87 @@
+.edit-place {
+  display: none;
+}
+
+.edit-place--show {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: white;
+  color: rgb(88, 88, 88);
+  box-sizing: border-box;
+  padding: 10px 13px 30px 13px;
+  overflow-y: auto;
+}
+
+.edit-place__flex-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  @include respond(tablet) {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+.edit-place__form {
+  color: $color-dark-grey;
+
+  @include respond(tablet) {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .edit-place__form-items {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    .edit-place__form-item {
+      list-style-type: none;
+      margin-bottom: 10px;   
+    }
+
+    .edit-place__form-item--submit {
+      align-self: flex-end;  
+    }
+  }
+}
+
+.edit-place__submit-button {
+  @include button(green);
+}
+
+.edit-place__form input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 3px 0 0 0;
+}
+
+.edit-place__form label {
+  font-size: 12px;
+}
+
+.opening-hours {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.opening-hours__title {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 3px;
+}
+
+.opening-hours__hour .edit-categories__category {
+  display: inline-block;
+}

@@ -1,4 +1,12 @@
-@use "./global.scss";
-@use "./map.scss";
-@use "./placesList.scss";
-@use "./searchForm.scss";
+@import "./map.scss";
+@import "./UI/buttons.scss";
+@import "./_mixins.scss";
+@import "./global.scss";
+@import "./search.scss";
+@import "./sideDrawer.scss";
+@import "./places.scss";
+@import "./fullPlace.scss";
+@import "./filtersSection.scss";
+@import "./editPlace.scss";
+@import "./addPlace.scss";
+

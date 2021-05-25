@@ -1,0 +1,26 @@
+.add-place {
+  display: none;
+}
+
+.add-place--show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 215px;
+
+  @include respond(tablet) {
+    justify-content: flex-end;
+  }
+}
+
+.add-place__button {
+  width: 75%;
+  @include button(grey);
+  @include respond(tablet) {
+    width: 30%;
+    margin: 0px 10%;
+  }
+}

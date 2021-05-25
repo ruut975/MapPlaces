@@ -1,9 +1,14 @@
-import places from '../../../public/places.json';
+export const showPlacesList = (element) => {
+  element.classList.add("places--show");
+};
 
-const placesList = places.places;
-const placesListEl = document.getElementById('placesList');
+export const hidePlacesList = (element) => {
+  element.classList.remove("places--show");
+};
 
-placesList.forEach(place => {
-const html = `<li class="placesListItem"><h1>${place.name}</h1><p>${place.description}</p></li>`
-  placesListEl.innerHTML += html;
-});
+export const renderListOfPlaces = (places, outputDiv) => {
+  places.forEach((place) => {
+    const html = `<li class="placesListItem"><h1>${place.name}</h1><p>${place.description}</p></li>`;
+    outputDiv.innerHTML += html;
+  });
+};

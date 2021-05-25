@@ -1,0 +1,32 @@
+/* Color Themes - Variables */
+$grey: #4f4f50;
+$blue: #3BA9E4;
+$green: #75B343;
+$orange: #FF6A42;
+
+// mixins
+@mixin button($btn-color) {
+  height: 40px;
+  border-radius: 10px;
+  padding: 5px 12px;
+  font-size: 16px;
+  border: none;
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+
+  @if $btn-color == grey  {
+    background-color: $grey;
+    &:hover {
+      background-color: $green;
+    }
+  }
+  @if $btn-color == green  {
+    background-color: $green;
+    &:hover {
+      background-color: $grey;
+    }
+  }
+}
+

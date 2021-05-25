@@ -1,0 +1,29 @@
+// breakpoint mixin
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == tablet  {
+    @media (min-width: 640px) { 
+      @content 
+    }
+  }
+  @if $breakpoint == laptop  {
+    @media (min-width: 1024px) { 
+      @content
+    }
+  }
+  @if $breakpoint == desktop  {
+    @media (min-width: 1280px) { 
+      @content 
+    }
+  }
+}
+
+// sm tablet (min-width: 640px) 
+
+// md tablet (min-width: 768px) 
+
+// laptop (min-width: 1024px) 
+
+// desktop  (min-width: 1280px)
+
+// lg desktop (min-width: 1536px)

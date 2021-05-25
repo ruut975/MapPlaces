@@ -5,16 +5,197 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../src/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap" rel="stylesheet">
     <title>My Places</title>
   </head>
   <body>
-    <div id="map"></div>
-    <form id="searchForm"><input type="text" id="searchBox" placeholder="Search Places..."></input></form>
-    <div id="places">
-      <div id="toggleList">-</div>
-      <ul id="placesList"></ul>
-    </div>
+    <div class="map-places">
+      <div id="map"></div>
+      <form class="search">
+        <input type="text" class="search__input" placeholder="Search Places..."></input>
+        <button class="search__button">≡</button>
+      </form>
+      <div class="add-place">
+        <button class="add-place__button">Add To My Places</button>
+      </div>
+
+      <div class="side-drawer">
+        <div class="side-drawer__toggle">
+          <button class="side-drawer__toggle-button">≡</button>
+        </div>
+
+          <div class="side-drawer__places">
+            <div class="filters-section"">
+              <div class="filters-section__menu">
+                <form class="filters-form">
+                  <ul class="filters">
+                    <li class="filter">
+                      <label for="open-now">Open Now</label>
+                      <input type="checkbox" name="open-now" class="filter__checkbox"></input>
+                    </li>
+                    <li class="filter">
+                      <label for="favorites">Favorites</label>
+                      <input type="checkbox" name="favorites" class="filter__checkbox"></input>
+                    </li>
+                  </ul>
+                </form>
+              <button class="filters__menu-button">≡</button>
+            </div>
+            <div class="categories">
+              <p class="categories__title">Filter by category</p>
+              <ul class="categories__list">
+                <li class="category">
+                  <p class="category__name">Restaurant</p>
+                  <div class="category__icon">♨</div>
+                </li>
+                <li class="category">
+                  <p class="category__name">Cafe</p>
+                  <div class="category__icon">♨</div>
+                </li>
+                <li class="category">
+                  <p class="category__name">Museum</p>
+                  <div class="category__icon">♨</div>
+                </li>  
+              </ul>
+            </div>
+          </div> <!-- END filters-section-->
+          <div class="places">
+            <ul class="places__list">
+              <li class="places__list-item">
+                <div class="flex-container">
+                  <h1 class="list-item__title">Oulu</h1>
+                  <div class="list-item__favorite-icon">+</div>
+                </div>
+                <div class="list-item__opening-hours">Open 7:00 - 16:00</div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </li>
+              <li class="places__list-item">
+                <div class="flex-container">
+                  <h1 class="list-item__title">Turku</h1>
+                  <div class="list-item__favorite-icon">+</div>
+                </div>
+                <div class="list-item__opening-hours">Open 7:00 - 16:00</div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </li>
+              <li class="places__list-item">
+                <div class="flex-container">
+                  <h1 class="list-item__title">Helsinki</h1>
+                  <div class="list-item__favorite-icon">+</div>
+                </div>
+                <div class="list-item__opening-hours">Open 7:00 - 16:00</div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </li>
+              <li class="places__list-item">
+                <div class="flex-container">
+                  <h1 class="list-item__title">Naantali</h1>
+                  <div class="list-item__favorite-icon">+</div>
+                </div>
+                <div class="list-item__opening-hours">Open 7:00 - 16:00</div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </li>
+            </ul> 
+          </div> <!-- END places-->
+        </div> <!-- END side-drawer__content--places-->
+
+        <div class="side-drawer__full-place">
+          <div class="place">
+            <div class="place__back">
+              <button class="place__back-button">←</button>
+            </div>
+            <div class="flex-container">
+              <h1 class="place__title">Oulu</h1>
+              <div class="place__favorite-icon">+</div>
+            </div>
+            <div class="place__opening-hours">Open 7:00 - 16:00</div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <button class="place__edit-button">Edit</button>
+          </div>
+        </div> <!-- END side-drawer__content--full-place-->  
+
+      </div> <!-- END side-drawer -->
+
+      <div class="edit-place">
+        <button type="submit" class="edit-place__cancel-button">Cancel</button>
+        <div class="edit-place__flex-container">
+          <h1>Edit Place</h1>
+          <button class="edit-place__remove-button">Remove</button>
+        </div>
+        <form action="/edit-place" method="post" class="edit-place__form">
+          <ul class="edit-place__form-items">
+            <li class="edit-place__form-item">
+              <div class="form-item__favorite-icon">+</div>
+            </li>
+            <li class="edit-place__form-item">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="place_name" placeholder="Name" />
+            </li>
+            <li class="edit-place__form-item">
+              <label for="description">Description</label>
+              <textarea id="description" name="place_description" cols="30" rows="5" placeholder="Place description..."></textarea>
+            </li>
+            <li class="edit-place__form-item">
+              <div class="opening-hours">
+                <p class="opening-hours___title">Opening hours</p>
+                <div class="opening-hours__hour">
+                  <label for="open-from">From</label>
+                  <input type="time" id="open-from" name="hour-input"></input>
+                </div>
+                <div class="opening-hours__hour">
+                  <label for="open-to">To</label>
+                  <input type="time" id="open-to" name="hour-input"></input>
+                </div>
+              </div>
+            </li>
+            <li class="edit-place__form-item">
+              <fieldset class="edit-categories">
+                <legend>Choose Category</legend>
+                <div class="edit-categories__category">
+                  <label for="sea">Sea</label>
+                  <input type="radio" id="sea" name="category" value="sea">
+                </div>
+                <div>
+                  <label for="land">Land</label>
+                  <input type="radio" id="land" name="category" value="land">
+                </div>
+                <div>
+                  <label for="mountain">Mountain</label>
+                  <input type="radio" id="mountain" name="category" value="mountain">
+                </div>
+                <div>
+                  <label for="forest">Forest</label>
+                  <input type="radio" id="forest" name="category" value="forest">
+                </div>
+              </fieldset>
+            </li>
+            <li class="edit-place__form-item">
+              <button>+ Add Category</button>
+            </li>
+            <li class="edit-place__form-item edit-place__form-item--submit">
+              <button type="submit" class="edit-place__submit-button">Save</button>
+            </li>
+          </ul>
+        </form>
+      </div> <!-- END edit-place -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYZghoLbAOnszANnABggZ4oTqXoihGxU" async></script>
     <script type="module" src="../src/js/index.js"></script>
+    </div> <!-- END map-places-->
   </body>
 </html>

@@ -1,0 +1,85 @@
+@use "sass:math";
+
+$side-drawer-height: 72%;
+$side-drawer-toggle-height: 90px;
+$side-drawer-width-tablet: 45%;
+
+.side-drawer {
+  width: 100%;
+  position: absolute;
+  height: $side-drawer-height;
+  bottom: calc(-#{$side-drawer-height} + #{$side-drawer-toggle-height});
+
+  @include respond(tablet) {
+    width: $side-drawer-width-tablet;
+    height: 100%;
+    bottom: 0;
+    left: -$side-drawer-width-tablet;
+  }
+}
+.side-drawer--show {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 72%;
+
+  @include respond(tablet) {
+    height: 100%;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.side-drawer__toggle {
+  background: transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: $side-drawer-toggle-height;
+
+  @include respond(tablet) {
+    width: calc(100% + 57px);
+    height: 60px;
+    position: absolute;
+  }
+
+  .side-drawer__toggle-button {
+    flex-basis: 37px;
+    margin: 10px;
+    height: 37px;
+    @include button(green);
+  }
+}
+
+.side-drawer__places {
+  display: none;
+  background-color: $color-white;
+}
+
+.side-drawer__places--show {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+
+  @include respond(tablet) {
+    height: inherit;
+    z-index: 10;
+  }
+}
+
+.side-drawer__full-place {
+  display: none;
+}
+
+.side-drawer__full-place--show {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  background-color: white;
+  padding: 10px 0;
+
+  @include respond(tablet) {
+    height: inherit;
+    z-index: 10;
+  }
+}

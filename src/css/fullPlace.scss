@@ -1,0 +1,49 @@
+.place {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 13px;
+  overflow-y: scroll;
+
+  .place__back {
+    display: flex;
+  }
+
+  .place__back-button {
+    background-color: transparent;
+    border: none;
+    color: $color-dark-grey;
+  }
+
+  .place__back-button:hover {
+    cursor: pointer;
+  }
+
+  .flex-container {
+    display: flex;
+    align-items: center;
+
+    .place__title {
+      flex: 1 1 95%;
+      margin: 0;
+    }
+
+    .place__favorite-icon {
+      display: inline-block;
+      flex: 1 1 5%;
+      text-align: center;
+    }
+  }
+
+  .place__opening-hours {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .place__edit-button {
+    @include button(green);
+    width: 20%;
+    align-self: flex-end;
+    margin-top: 20px;
+  }
+}

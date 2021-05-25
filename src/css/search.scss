@@ -1,0 +1,30 @@
+.search {
+  position: absolute;
+  top: 23px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
+  @include respond(tablet) {
+    width: 50%;
+    right: 0;
+    top: 13px;
+  }
+  
+  .search__input {
+    height: 35px;
+    flex: 0.7 1;
+    z-index: 10;
+  }
+
+  .seach__button {
+    width: 35px;
+    z-index: 10;
+  }
+}
+
+.search--hide {
+  display: none;
+}
+
+
