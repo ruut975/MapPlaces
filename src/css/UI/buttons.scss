@@ -1,14 +1,11 @@
 /* Color Themes - Variables */
-$grey: #4f4f50;
-$blue: #3BA9E4;
+$grey: #6b6b6b;
 $green: #75B343;
-$orange: #FF6A42;
 
 // mixins
 @mixin button($btn-color) {
-  height: 40px;
   border-radius: 10px;
-  padding: 5px 12px;
+  padding: 5px;
   font-size: 16px;
   border: none;
   color: white;

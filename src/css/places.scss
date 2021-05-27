@@ -14,7 +14,7 @@
 }
 
 .places__list-item {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid $color-grey;
   margin-bottom: 10px;
   padding-top: 10px;
 
@@ -27,16 +27,20 @@
       flex: 1 1 95%;
       margin: 0;
       cursor: pointer;
-    }
 
-    .list-item__title:hover {
-      color: #82bf82;
+      &:hover {
+        color: #82bf82;
+      }
     }
 
     .list-item__favorite-icon {
-      display: inline-block;
-      flex: 1 1 5%;
-      text-align: center;
+      color: $color-grey;
+    }
+
+    .list-item__favorite-icon--selected {
+      color: #ffe13d;
+      stroke: #cbcc6b;
+      stroke-width: 2px;  
     }
   }
 

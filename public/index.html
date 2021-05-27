@@ -13,18 +13,30 @@
     <div class="map-places">
       <div id="map"></div>
       <form class="search">
-        <input type="text" class="search__input" placeholder="Search Places..."></input>
-        <button class="search__button">≡</button>
+        <input type="search" class="search__input" placeholder="Search Places..."></input>
+        <button class="search__button">
+          <svg
+            width="18" 
+            height="18" 
+            viewBox="0 0 24 24">
+            <path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/>
+          </svg>
+        </button>
       </form>
       <div class="add-place">
         <button class="add-place__button">Add To My Places</button>
       </div>
-
       <div class="side-drawer">
         <div class="side-drawer__toggle">
-          <button class="side-drawer__toggle-button">≡</button>
+          <button class="side-drawer__toggle-button">
+            <svg
+             width="20" 
+             height="20" 
+             viewBox="0 0 24 24">
+             <path d="M4 22h-4v-4h4v4zm0-12h-4v4h4v-4zm0-8h-4v4h4v-4zm3 0v4h17v-4h-17zm0 12h17v-4h-17v4zm0 8h17v-4h-17v4z"/>
+            </svg>
+          </button>
         </div>
-
           <div class="side-drawer__places">
             <div class="filters-section"">
               <div class="filters-section__menu">
@@ -40,22 +52,26 @@
                     </li>
                   </ul>
                 </form>
-              <button class="filters__menu-button">≡</button>
+              <button class="filters__menu-button">
+                <svg
+                  width="18" 
+                  height="18" 
+                  viewBox="0 0 24 24">
+                  <path d="M1 0h22l-9 15.094v8.906l-4-3v-5.906z"/>
+                </svg>
+              </button>
             </div>
             <div class="categories">
               <p class="categories__title">Filter by category</p>
               <ul class="categories__list">
                 <li class="category">
-                  <p class="category__name">Restaurant</p>
-                  <div class="category__icon">♨</div>
+                  <button class="category__button">Restaurant</button>
                 </li>
                 <li class="category">
-                  <p class="category__name">Cafe</p>
-                  <div class="category__icon">♨</div>
+                  <button class="category__button">Cafe</button>
                 </li>
                 <li class="category">
-                  <p class="category__name">Museum</p>
-                  <div class="category__icon">♨</div>
+                  <button class="category__button">Museum</button>
                 </li>  
               </ul>
             </div>
@@ -65,7 +81,14 @@
               <li class="places__list-item">
                 <div class="flex-container">
                   <h1 class="list-item__title">Oulu</h1>
-                  <div class="list-item__favorite-icon">+</div>
+                  <div class="list-item__favorite-icon">
+                    <svg
+                      width="18" 
+                      height="18" 
+                      viewBox="0 0 24 24">
+                      <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                    </svg>
+                  </div>
                 </div>
                 <div class="list-item__opening-hours">Open 7:00 - 16:00</div>
                 <p>
@@ -76,7 +99,14 @@
               <li class="places__list-item">
                 <div class="flex-container">
                   <h1 class="list-item__title">Turku</h1>
-                  <div class="list-item__favorite-icon">+</div>
+                  <div class="list-item__favorite-icon list-item__favorite-icon--selected">
+                    <svg
+                      width="18" 
+                      height="18" 
+                      viewBox="0 0 24 24">
+                      <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                    </svg>
+                  </div>
                 </div>
                 <div class="list-item__opening-hours">Open 7:00 - 16:00</div>
                 <p>
@@ -87,7 +117,14 @@
               <li class="places__list-item">
                 <div class="flex-container">
                   <h1 class="list-item__title">Helsinki</h1>
-                  <div class="list-item__favorite-icon">+</div>
+                  <div class="list-item__favorite-icon">
+                    <svg
+                      width="18" 
+                      height="18" 
+                      viewBox="0 0 24 24">
+                      <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                    </svg>
+                  </div>
                 </div>
                 <div class="list-item__opening-hours">Open 7:00 - 16:00</div>
                 <p>
@@ -98,7 +135,14 @@
               <li class="places__list-item">
                 <div class="flex-container">
                   <h1 class="list-item__title">Naantali</h1>
-                  <div class="list-item__favorite-icon">+</div>
+                  <div class="list-item__favorite-icon">
+                    <svg
+                      width="18" 
+                      height="18" 
+                      viewBox="0 0 24 24">
+                      <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                    </svg>
+                  </div>
                 </div>
                 <div class="list-item__opening-hours">Open 7:00 - 16:00</div>
                 <p>
@@ -109,15 +153,31 @@
             </ul> 
           </div> <!-- END places-->
         </div> <!-- END side-drawer__content--places-->
-
         <div class="side-drawer__full-place">
           <div class="place">
             <div class="place__back">
-              <button class="place__back-button">←</button>
+              <button class="place__back-button">
+                <svg
+                  width="18" 
+                  height="18" 
+                  viewBox="0 0 24 24">
+                  <path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/>
+                </svg>
+              </button>
             </div>
             <div class="flex-container">
               <h1 class="place__title">Oulu</h1>
-              <div class="place__favorite-icon">+</div>
+              <div class="place__favorite">
+                <button class="place__favorite-button place__favorite-button--selected">
+                  <svg
+                    width="18" 
+                    height="18" 
+                    viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                  </svg>
+                </button>
+              </div>
+
             </div>
             <div class="place__opening-hours">Open 7:00 - 16:00</div>
             <p>
@@ -129,20 +189,32 @@
             <button class="place__edit-button">Edit</button>
           </div>
         </div> <!-- END side-drawer__content--full-place-->  
-
       </div> <!-- END side-drawer -->
-
       <div class="edit-place">
         <button type="submit" class="edit-place__cancel-button">Cancel</button>
         <div class="edit-place__flex-container">
-          <h1>Edit Place</h1>
-          <button class="edit-place__remove-button">Remove</button>
+          <h1>Add Place</h1>
+          <button class="edit-place__remove-button">
+            <svg
+              width="18" 
+              height="18" 
+              viewBox="0 0 24 24">
+              <path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
+            </svg>
+          </button>
         </div>
         <form action="/edit-place" method="post" class="edit-place__form">
           <ul class="edit-place__form-items">
-            <li class="edit-place__form-item">
-              <div class="form-item__favorite-icon">+</div>
-            </li>
+            <!-- <li class="edit-place__form-item">
+              <button class="form-item__favorite-icon form-item__favorite-icon--selected">
+                <svg
+                  width="18" 
+                  height="18" 
+                  viewBox="0 0 24 24">
+                  <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                </svg>
+              </button>
+            </li> -->
             <li class="edit-place__form-item">
               <label for="name">Name</label>
               <input type="text" id="name" name="place_name" placeholder="Name" />
@@ -165,31 +237,27 @@
               </div>
             </li>
             <li class="edit-place__form-item">
-              <fieldset class="edit-categories">
-                <legend>Choose Category</legend>
+              <div class="edit-categories">
+                <p class="edit-categories___title">Categories</p>
                 <div class="edit-categories__category">
-                  <label for="sea">Sea</label>
-                  <input type="radio" id="sea" name="category" value="sea">
+                  <label for="sea">Restaurant</label>
+                  <input type="radio" id="restaurant" name="category" value="restaurant">
                 </div>
-                <div>
-                  <label for="land">Land</label>
-                  <input type="radio" id="land" name="category" value="land">
+                <div class="edit-categories__category">
+                  <label for="land">Cafe</label>
+                  <input type="radio" id="cafe" name="category" value="cafe">
                 </div>
-                <div>
-                  <label for="mountain">Mountain</label>
-                  <input type="radio" id="mountain" name="category" value="mountain">
+                <div class="edit-categories__category">
+                  <label for="sea">Museum</label>
+                  <input type="radio" id="museum" name="category" value="museum">
                 </div>
-                <div>
-                  <label for="forest">Forest</label>
-                  <input type="radio" id="forest" name="category" value="forest">
-                </div>
-              </fieldset>
+              </div>
             </li>
-            <li class="edit-place__form-item">
-              <button>+ Add Category</button>
+            <li class="edit-place__form-item edit-place__form-item--add-category">
+              <button class="add-category">Add Category</button>
             </li>
             <li class="edit-place__form-item edit-place__form-item--submit">
-              <button type="submit" class="edit-place__submit-button">Save</button>
+              <button type="submit" class="edit-place__submit-button">Add</button>
             </li>
           </ul>
         </form>

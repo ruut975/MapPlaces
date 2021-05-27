@@ -7,16 +7,17 @@
 
   .place__back {
     display: flex;
+    margin-bottom: 8px;
   }
 
   .place__back-button {
     background-color: transparent;
     border: none;
-    color: $color-dark-grey;
-  }
+    color: black;
 
-  .place__back-button:hover {
-    cursor: pointer;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .flex-container {
@@ -28,10 +29,22 @@
       margin: 0;
     }
 
-    .place__favorite-icon {
-      display: inline-block;
-      flex: 1 1 5%;
-      text-align: center;
+    .place__favorite-button {
+      color: $color-grey;
+      background: none;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .place__favorite-button--selected {
+      color: #ffe13d;
+      stroke: #cbcc6b;
+      stroke-width: 2px;
+      background: none;
+      border: none;
     }
   }
 

@@ -19,6 +19,7 @@
 .add-place__button {
   width: 75%;
   @include button(grey);
+  box-shadow: 0px 1px 2px rgb(0 0 0 / 8%), 0px 4px 12px rgb(0 0 0 / 10%);
   @include respond(tablet) {
     width: 30%;
     margin: 0px 10%;

@@ -19,27 +19,14 @@
   }
 }
 
-.filters__menu {
-  display: flex;
-  padding: 10px 0;
-  justify-content: space-between;
+.filters__menu-button {
+  margin-left: 6px;
+  background: none;
+  border: none;
+  color: #505050;
 
-  .filters__form {
-    margin-left: -5px;
-    font-size: 14px;
-  }
-
-  .filters__form label {
-    margin-left: 5px;
-  }
-
-  .filters__form label, .filters__form input {
+  &:hover {
     cursor: pointer;
-  }
-
-  .filters__menu-button {
-    margin-left: 6px;
-    @include button(grey);
   }
 }
 
@@ -50,9 +37,12 @@
 .categories--show {
   display: block;
   position: absolute;
+  left: 0;
   width: 100%;
-  max-height: 200px;
+  max-height: 300px;
   background-color: white;
+  padding: $padding-global-horizontal;
+  border-bottom: 1px solid $color-grey;
 }
 
 .categories__list {
@@ -64,28 +54,11 @@
   padding-bottom: 10px;
 
   .category {
-    display: flex;
-    list-style-type: none;
-    color: black;
-    margin: 0 0 5px 5px;
-    border: 1px solid transparent;
-    border-radius: 19px;
-    height: 17px;
-    align-items: center;
-    padding: 0 5px;
-    background-color: #c9f3c4f5;
+    margin-right: 5px;
 
-    .category__name {
+    .category__button {
+      @include button(green);
       font-size: 12px;
     }
-
-    .category__icon {
-      margin-left: 3px;
-    }
-  }
-
-  .category:hover {
-    background-color: rgb(123, 168, 117);
-    cursor: pointer;
   }
 }

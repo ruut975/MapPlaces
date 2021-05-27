@@ -29,13 +29,16 @@ const showAddPlaceButton = () => {
   addPlace.classList.add('add-place--show');
 }
 
-const hideAddPlaceButton = () => {
+const hideUIControls = () => {
   const addPlace = document.querySelector(".add-place");
+  const sideDrawer = document.querySelector(".side-drawer");
+  sideDrawer.classList.remove('side-drawer--show');
   addPlace.classList.remove('add-place--show');
 }
 
 export const addMarker = () => {
   google.maps.event.addListener(map, "click", (event) => {
+    hideUIControls()
     showAddPlaceButton()
     const lat = event.latLng.lat().toFixed(6);
     const lng = event.latLng.lng().toFixed(6);
@@ -74,14 +77,14 @@ export const loadAllMarkers = (listOfMarkerPositions) => {
 
 export const onZoomChange = () => {
   google.maps.event.addListener(map, "zoom_changed", () => {
-    hideAddPlaceButton()
+    hideUIControls()
     placedMarker && removeUnsavedMarker(placedMarker);
   });
 };
 
 export const onMapDragend = () => {
   google.maps.event.addListener(map, "dragend", () => {
-    hideAddPlaceButton()
+    hideUIControls()
     placedMarker && removeUnsavedMarker(placedMarker);
   });
 };

@@ -46,13 +46,16 @@ Map.onMapDragend();
 
 // Attaching event listeners
 
+const addPlaceButton = document.querySelector(".add-place__button");
 const filtersMenuButton = document.querySelector(".filters__menu-button");
 const sideDrawerToggleButton = document.querySelector(".side-drawer__toggle-button");
 const listItemTitle = document.querySelectorAll(".list-item__title");
 const placeEditButton = document.querySelector(".place__edit-button");
-const editPlaceSubmitButton = document.querySelector(".edit-place__submit-button");
 const editPlaceCancelButton = document.querySelector(".edit-place__cancel-button");
+const editPlaceRemoveButton = document.querySelector(".edit-place__remove-button");
+const editPlaceSubmitButton = document.querySelector(".edit-place__submit-button");
 const placeBackButton = document.querySelector(".place__back-button");
+const placeFavoriteButton = document.querySelector(".place__favorite-button");
 
 const sideDrawer = document.querySelector(".side-drawer");
 const sideDrawerContentPlaces = document.querySelector(".side-drawer__places");
@@ -61,6 +64,12 @@ const addPlace = document.querySelector(".add-place");
 const editPlaceSection = document.querySelector(".edit-place");
 const categories = document.querySelector(".categories");
 const search = document.querySelector(".search");
+
+addPlaceButton.addEventListener('click', () => {
+  editPlaceSection.classList.add('edit-place--show');
+  search.classList.add('search--hide');
+  editPlaceRemoveButton.classList.add('edit-place__remove-button--hide');
+})
 
 filtersMenuButton.addEventListener('click', () => {
   categories.classList.toggle('categories--show');
@@ -86,6 +95,7 @@ placeEditButton.addEventListener('click', () => {
   sideDrawer.classList.remove('side-drawer--show');
   addPlace.classList.remove('add-place--show');
   search.classList.toggle('search--hide');
+  editPlaceRemoveButton.classList.remove('edit-place__remove-button--hide');
 })
 
 editPlaceSubmitButton.addEventListener('click', () => {
@@ -102,9 +112,17 @@ editPlaceCancelButton.addEventListener('click', () => {
   search.classList.toggle('search--hide');
 })
 
+editPlaceRemoveButton.addEventListener('click', () => {
+  confirm('Are you sure you want to remove item permanently?')
+})
+
 placeBackButton.addEventListener('click', () => {
   sideDrawerContentFullPlace.classList.remove('side-drawer__full-place--show');
   sideDrawerContentPlaces.classList.toggle('side-drawer__places--show');
+})
+
+placeFavoriteButton.addEventListener('click', () => {
+  placeFavoriteButton.classList.toggle('place__favorite-button--selected');
 })
 
 const searchBox = document.getElementsByClassName("searchBox");

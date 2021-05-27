@@ -15,18 +15,39 @@
   overflow-y: auto;
 }
 
+.edit-place__cancel-button {
+  @include button(grey);
+}
+
 .edit-place__flex-container {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  align-items: center;
 
   @include respond(tablet) {
     width: 60%;
     margin: 0 auto;
   }
+
+  .edit-place__remove-button {
+    background: none;
+    border: none;
+    color: #505050;
+
+    &:hover {
+      cursor: pointer;
+      color: rgb(253, 74, 74);
+    }
+  }
+
+  .edit-place__remove-button--hide {
+    display: none;
+  }
 }
 
 .edit-place__form {
+  height: 100%;
   color: $color-dark-grey;
 
   @include respond(tablet) {
@@ -35,6 +56,7 @@
   }
 
   .edit-place__form-items {
+    height: 100%;
     padding: 0;
     margin: 0;
     display: flex;
@@ -42,13 +64,23 @@
 
     .edit-place__form-item {
       list-style-type: none;
-      margin-bottom: 10px;   
+      margin-bottom: 10px;
+    }
+
+    .edit-place__form-item--add-category {
+      flex-grow: 1
     }
 
     .edit-place__form-item--submit {
-      align-self: flex-end;  
+      align-self: center;
+      width: 100%;
     }
   }
+}
+
+.add-category {
+  @include button(green);
+  font-size: 12px
 }
 
 .edit-place__submit-button {
@@ -66,21 +98,46 @@ textarea {
   margin-top: 3px 0 0 0;
 }
 
-.edit-place__form label {
+.edit-place__form label[for="name"],
+.edit-place__form label[for="description"] {
   font-size: 12px;
+  color: $color-green;
 }
 
 .opening-hours {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
+
+  .opening-hours___title {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: $color-green;
+  }
+
+  .opening-hours__hour {
+    margin-right: 10px;
+  }
 }
 
-.opening-hours__title {
-  width: 100%;
-  margin: 0;
-  margin-bottom: 3px;
+.edit-categories {
+  display: flex;
+  flex-wrap: wrap;
+
+  .edit-categories___title {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: $color-green;
+  }
+
+  .edit-categories__category {
+    margin-right: 10px;
+  }
 }
+
 
 .opening-hours__hour .edit-categories__category {
   display: inline-block;
