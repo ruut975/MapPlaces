@@ -1,6 +1,6 @@
 
 const mapDiv = document.getElementById("map");
-let map;
+let map = undefined;
 const centerCoords = { lat: 65.01236, lng: 25.46816 };
 const mapConfig = {
   // Map options
@@ -49,11 +49,9 @@ export const addMarker = () => {
     }
     placedMarker = new google.maps.Marker({
       position: event.latLng,
-      map: map,
-      draggable: true,
-      title: "Drag me!",
+      map: map
     });
-    // map.panTo(event.latLng);
+    centerMapToCoords(event.latLng)
   });
 };
 
@@ -91,4 +89,8 @@ export const onMapDragend = () => {
 
 const removeUnsavedMarker = (marker) => {
   marker.setMap(null);
+};
+
+const centerMapToCoords = (coords) => {
+  map.panTo(coords);
 };

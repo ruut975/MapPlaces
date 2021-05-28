@@ -1,6 +1,9 @@
 import "sanitize.css";
 import * as Map from "./modules/map";
 import * as Places from "./modules/places";
+import {
+  loadPlace
+} from './modules/place';
 // import places from "../../../public/places.json";
 
 const places = [

@@ -5,7 +5,7 @@ $green: #75B343;
 // mixins
 @mixin button($btn-color) {
   border-radius: 10px;
-  padding: 5px;
+  padding: 4px 8px;
   font-size: 16px;
   border: none;
   color: white;
