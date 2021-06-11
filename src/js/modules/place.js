@@ -1,16 +1,45 @@
 import axios from "axios";
+import { attachFullPlaceViewListeners } from '../app'
 
-const place = {};
-let url = "";
+export const showFullPlace = (id, element) => {
+  loadPlace(id).then((fetchedPlace) => {
+    renderPlace(fetchedPlace, element);
+    attachFullPlaceViewListeners()
+  })
+}
 
-export const loadPlace = (id, element) => {
-  url = `https://jsonplaceholder.typicode.com/todos/${id}`;
-  axios
-    .get(url)
-    .then((response) => {
-      renderPlace(response.data, element);
+export const addPlace = (formElement) => {
+sendFormData(formElement);
+}
+
+const sendFormData = (form) => {
+  form.onsubmit = async (e) => {
+    e.preventDefault();
+
+    let response = await axios({
+      method: 'post',
+      url: 'https://jsonplaceholder.typicode.com/todos',
+      data: new FormData(form)
     })
-    .catch((error) => console.log(error));
+
+    let result = await response.json();
+
+    alert(result.message);
+  };
+}
+
+const loadPlace = async (id) => {
+  const url = `https://jsonplaceholder.typicode.com/todos/${id}`;
+  try {
+    let response = await axios
+    .get(url);
+    if(response.status == 200) {
+      return response.data;
+    }     
+  } 
+  catch (error) {
+    console.log(error);
+  }
 };
 
 const renderPlace = (place, element) => {

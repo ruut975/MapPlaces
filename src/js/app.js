@@ -1,4 +1,3 @@
-import "sanitize.css";
 import * as Map from "./modules/map";
 import * as Places from "./modules/places";
 import * as Place from "./modules/place";
@@ -69,11 +68,11 @@ const addElementClass = (element, className) => {
 
 const removeElementClass = (element, className) => {
   if (element) {
-    if (className && typeof className == String) {
+    if (className) {
       element.classList.remove(className);
     } else {
       throw new Error(
-        "removeElementClass: second argument missing or is not a string"
+        "removeElementClass: second argument missing"
       );
     }
   } else {
@@ -121,37 +120,26 @@ sideDrawerToggleButton.addEventListener("click", () => {
   addPlace.classList.remove("add-place--show");
 });
 
-Places.loadPlaces(placesList);
-let listItems;
-setTimeout(() => {
-  listItems = document.querySelectorAll(".places__list-item");
-  console.log(listItems);
-  attachePlacesViewListeners();
-}, 2000);
+Places.showPlaces(placesList);
 
-const attachePlacesViewListeners = () => {
+export const attachPlacesViewListeners = () => {
+  const listItems = document.querySelectorAll(".places__list-item");
+
   listItems.forEach((item) => {
     item.addEventListener("click", (e) => {
-      console.log(e);
-      const listItemId = e.target.parentElement.parentElement.id;
-      console.log(listItemId);
-
-      if (e.target.attributes?.class?.value == 'list-item__title') {
-        Place.loadPlace(listItemId, sideDrawerContentFullPlace);
-      sideDrawerContentFullPlace.classList.toggle(
-        "side-drawer__content--show-full-place"
-      );
-      setTimeout(() => {
-        attacheFullPageViewListeners()
-      }, 2000);
+      const listItemId = e.target.parentElement.parentElement.id
+      if (e.target.attributes?.class?.value == "list-item__title") {
+        Place.showFullPlace(listItemId, sideDrawerContentFullPlace);
+        sideDrawerContentFullPlace.classList.toggle(
+          "side-drawer__content--show-full-place"
+        );
+        addPlace.classList.remove("add-place--show");
       }
-      
-    });
-    addPlace.classList.remove("add-place--show");
-  });
+    })
+  })
 };
 
-const attacheFullPageViewListeners = () => {
+export const attachFullPlaceViewListeners = () => {
   const placeBackButton = document.querySelector(".place__back-button");
   const placeFavoriteButton = document.querySelector(".place__favorite-button");
   const placeEditButton = document.querySelector(".place__edit-button");
@@ -176,6 +164,9 @@ const attacheFullPageViewListeners = () => {
 };
 
 editPlaceSubmitButton.addEventListener("click", () => {
+  const form = document.querySelector('edit-place__form');
+  console.log(form);
+  Place.addPlace(form);
   editPlaceSection.classList.remove("edit-place--show");
   sideDrawer.classList.remove("side-drawer--show");
   addPlace.classList.remove("add-place--show");

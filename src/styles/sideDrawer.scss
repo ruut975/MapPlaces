@@ -1,4 +1,7 @@
 @use "sass:math";
+@import "./_variables.scss";
+@import "./UI/buttons.scss";
+@import "./_mixins.scss";
 
 $side-drawer-height: 72%;
 $side-drawer-toggle-height: 90px;

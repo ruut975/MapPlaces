@@ -1,3 +1,7 @@
+@import "./_variables.scss";
+@import "./UI/buttons.scss";
+@import "./_mixins.scss";
+
 .edit-place {
   display: none;
 }

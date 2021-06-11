@@ -1,16 +1,27 @@
 import axios from "axios";
+import { attachPlacesViewListeners } from '../app'
 
-const url = "https://jsonplaceholder.typicode.com/todos?_limit=9";
+const url = "https://us-central1-map-places-311d1.cloudfunctions.net/places";
 
-export const loadPlaces = (element) => {
-  axios
-    .get(url)
-    .then((response) => {
-      console.log(response.data);
-      const fetchedPlaces = response.data;
-      renderPlaces(fetchedPlaces, element);
-    })
-    .catch((error) => console.log(error));
+export const showPlaces = (element) => {
+  loadPlaces().then((fetchedPlaces) => {
+    renderPlaces(fetchedPlaces, element);
+    attachPlacesViewListeners()
+  })
+}
+
+const loadPlaces = async () => {
+  try {
+    let response = await axios
+    .get(url);
+    if(response.status == 200){
+      return response.data;
+    }  
+    console.log(response)   
+  } 
+  catch (error) {
+    console.log(error);
+  }
 };
 
 const renderPlaces = (placesArray, element) => {
@@ -18,6 +29,7 @@ const renderPlaces = (placesArray, element) => {
   if (placesArray) {
     placesArray.forEach((place) => {
       const title = place.title;
+      const description = place.description;
       htmlPlaceTemplate = `
       <li class="places__list-item" id="${place.id}">
       <div class="flex-container">
@@ -32,10 +44,7 @@ const renderPlaces = (placesArray, element) => {
         </div>
       </div>
       <div class="list-item__opening-hours">Open 7:00 - 16:00</div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
+      <p>${description}</p>
     </li>
      `;
      element.innerHTML += htmlPlaceTemplate;
