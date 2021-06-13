@@ -8,19 +8,19 @@ const admin = require("firebase-admin");
 admin.initializeApp();
 
 const app = express();
-// app.use((req, res, next) => {
-//   res.header(
-//     "Access-Control-Allow-Origin",
-//     "https://us-central1-map-places-311d1.cloudfunctions.net"
-//   );
-//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-//   next();
-// });
+// Allow cross-origin requests for certain domains
+app.use(
+  cors({ origin: "http://localhost:8080" })
+);
 
-// Automatically allow cross-origin requests
-// app.use(
-//   cors({ origin: "https://us-central1-map-places-311d1.cloudfunctions.net/" })
-// );
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+  res.header(
+    "Access-Control-Allow-Methods", "GET, POST, PUT, DELETE"
+  );
+  next();
+});
 
 app.post("/", async (req, res) => {
   const place = req.body;

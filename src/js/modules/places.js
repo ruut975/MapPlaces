@@ -15,6 +15,7 @@ const loadPlaces = async () => {
     let response = await axios
     .get(url);
     if(response.status == 200){
+      console.log(response)
       return response.data;
     }  
     console.log(response)   
