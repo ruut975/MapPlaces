@@ -32,6 +32,9 @@ const places = [
     favorite: false,
   },
 ];
+
+const apiUrl = "https://us-central1-map-places-311d1.cloudfunctions.net/places"
+
 // Map Controller
 
 // initializing google map
@@ -120,7 +123,7 @@ sideDrawerToggleButton.addEventListener("click", () => {
   addPlace.classList.remove("add-place--show");
 });
 
-Places.showPlaces(placesList);
+Places.showPlaces(placesList, apiUrl);
 
 export const attachPlacesViewListeners = () => {
   const listItems = document.querySelectorAll(".places__list-item");
@@ -129,7 +132,7 @@ export const attachPlacesViewListeners = () => {
     item.addEventListener("click", (e) => {
       const listItemId = e.target.parentElement.parentElement.id
       if (e.target.attributes?.class?.value == "list-item__title") {
-        Place.showFullPlace(listItemId, sideDrawerContentFullPlace);
+        Place.showFullPlace(listItemId, apiUrl, sideDrawerContentFullPlace);
         sideDrawerContentFullPlace.classList.toggle(
           "side-drawer__content--show-full-place"
         );

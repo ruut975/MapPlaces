@@ -1,8 +1,9 @@
 import axios from "axios";
 import { attachFullPlaceViewListeners } from '../app'
 
-export const showFullPlace = (id, element) => {
-  loadPlace(id).then((fetchedPlace) => {
+
+export const showFullPlace = (id, baseUrl ,element) => {
+  loadPlace(id, baseUrl).then((fetchedPlace) => {
     renderPlace(fetchedPlace, element);
     attachFullPlaceViewListeners()
   })
@@ -18,7 +19,7 @@ const sendFormData = (form) => {
 
     let response = await axios({
       method: 'post',
-      url: 'https://jsonplaceholder.typicode.com/todos',
+      url: url,
       data: new FormData(form)
     })
 
@@ -28,8 +29,8 @@ const sendFormData = (form) => {
   };
 }
 
-const loadPlace = async (id) => {
-  const url = `https://jsonplaceholder.typicode.com/todos/${id}`;
+const loadPlace = async (id, baseUrl) => {
+  const url = `${baseUrl}/${id}`;
   try {
     let response = await axios
     .get(url);
@@ -46,6 +47,7 @@ const renderPlace = (place, element) => {
   let htmlPlaceTemplate;
   if (place) {
     const title = place.title;
+    const description = place.description;
     htmlPlaceTemplate = `
      <div class="place">
      <div class="place__back">
@@ -72,12 +74,7 @@ const renderPlace = (place, element) => {
        </div>
      </div>
      <div class="place__opening-hours">Open 7:00 - 16:00</div>
-     <p>
-       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>
-       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-     </p>
+     <p>${description}</p>
      <button class="place__edit-button">Edit</button>
    </div> `;
   } else {

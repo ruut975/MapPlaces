@@ -1,19 +1,17 @@
 import axios from "axios";
 import { attachPlacesViewListeners } from '../app'
 
-const url = "https://us-central1-map-places-311d1.cloudfunctions.net/places";
-
-export const showPlaces = (element) => {
-  loadPlaces().then((fetchedPlaces) => {
-    renderPlaces(fetchedPlaces, element);
+export const showPlaces = (element, apiUrl) => {
+  loadPlaces(apiUrl).then((result) => {
+    renderPlaces(result, element);
     attachPlacesViewListeners()
   })
 }
 
-const loadPlaces = async () => {
+const loadPlaces = async (apiUrl) => {
   try {
     let response = await axios
-    .get(url);
+    .get(apiUrl);
     if(response.status == 200){
       console.log(response)
       return response.data;
