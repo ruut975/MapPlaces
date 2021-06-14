@@ -1,29 +1,21 @@
 import axios from "axios";
-import { attachPlacesViewListeners } from '../app'
 
-export const showPlaces = (element, apiUrl) => {
-  loadPlaces(apiUrl).then((result) => {
-    renderPlaces(result, element);
-    attachPlacesViewListeners()
-  })
-}
-
-const loadPlaces = async (apiUrl) => {
+export const loadPlaces = async (apiUrl) => {
   try {
     let response = await axios
     .get(apiUrl);
     if(response.status == 200){
-      console.log(response)
+      console.log(response.data)
       return response.data;
     }  
-    console.log(response)   
   } 
-  catch (error) {
+  catch(error) {
     console.log(error);
   }
 };
 
-const renderPlaces = (placesArray, element) => {
+export const renderPlaces = (placesArray, element) => {
+  console.log();
   let htmlPlaceTemplate;
   if (placesArray) {
     placesArray.forEach((place) => {

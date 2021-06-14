@@ -1,47 +1,22 @@
-import * as Map from "./modules/map";
 import * as Places from "./modules/places";
+import * as Map from "./modules/map";
 import * as Place from "./modules/place";
-// import places from "../../../public/places.json";
-
-const places = [
-  {
-    id: 1,
-    name: "Oulu",
-    description: "Capital of Northern Finland",
-    coords: { lat: 65.01236, lng: 25.46816 },
-    hours: { from: "07:00", to: "18:00" },
-    category: "City",
-    favorite: true,
-  },
-  {
-    id: 2,
-    name: "Helsinki",
-    description: "Capital of Finland",
-    coords: { lat: 60.1699, lng: 24.9384 },
-    hours: { from: "07:00", to: "18:00" },
-    category: "Capital City",
-    favorite: true,
-  },
-  {
-    id: 3,
-    name: "Naantali",
-    description: "Sunniest city in Finland",
-    coords: { lat: 60.4661, lng: 22.0251 },
-    hours: { from: "07:00", to: "16:00" },
-    category: "Capital City",
-    favorite: false,
-  },
-];
 
 const apiUrl = "https://us-central1-map-places-311d1.cloudfunctions.net/places"
 
+// loading places
+const places = await Places.loadPlaces(apiUrl)
+
 // Map Controller
 
-// initializing google map
+// initialize google map
 Map.initMap();
 
-Map.loadAllMarkers(Map.savedMarkers);
-Map.addMarker();
+// render markers
+Map.renderAllPlacesMarkers(places);
+
+// attache map event handlers
+Map.onMapClick();
 Map.onZoomChange();
 Map.onMapDragend();
 
@@ -123,9 +98,7 @@ sideDrawerToggleButton.addEventListener("click", () => {
   addPlace.classList.remove("add-place--show");
 });
 
-Places.showPlaces(placesList, apiUrl);
-
-export const attachPlacesViewListeners = () => {
+const attachPlacesViewListeners = () => {
   const listItems = document.querySelectorAll(".places__list-item");
 
   listItems.forEach((item) => {
@@ -141,6 +114,11 @@ export const attachPlacesViewListeners = () => {
     })
   })
 };
+
+Places.renderPlaces(places, placesList)
+attachPlacesViewListeners();
+
+// Places.showPlaces(placesList, places);
 
 export const attachFullPlaceViewListeners = () => {
   const placeBackButton = document.querySelector(".place__back-button");
