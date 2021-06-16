@@ -6,6 +6,7 @@ const apiUrl = "https://us-central1-map-places-311d1.cloudfunctions.net/places"
 
 // loading places
 const places = await Places.loadPlaces(apiUrl)
+console.log(places);
 
 // Map Controller
 

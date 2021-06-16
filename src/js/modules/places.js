@@ -17,7 +17,7 @@ export const loadPlaces = async (apiUrl) => {
 export const renderPlaces = (placesArray, element) => {
   console.log();
   let htmlPlaceTemplate;
-  if (placesArray) {
+  if (placesArray) {  
     placesArray.forEach((place) => {
       const title = place.title;
       const description = place.description;
@@ -40,8 +40,6 @@ export const renderPlaces = (placesArray, element) => {
      `;
      element.innerHTML += htmlPlaceTemplate;
     });
-  } else {
-    throw new Error("renderPlaces: first argument missing");
   }
 };
 
