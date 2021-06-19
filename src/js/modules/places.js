@@ -5,7 +5,6 @@ export const loadPlaces = async (apiUrl) => {
     let response = await axios
     .get(apiUrl);
     if(response.status == 200){
-      console.log(response.data)
       return response.data;
     }  
   } 
@@ -21,11 +20,15 @@ export const renderPlaces = (placesArray, element) => {
     placesArray.forEach((place) => {
       const title = place.title;
       const description = place.description;
+      let favoriteIconClassList = ["list-item__favorite-icon"];
+      if (place.favorite == true) {
+        favoriteIconClassList.push("list-item__favorite-icon--selected");
+      }
       htmlPlaceTemplate = `
       <li class="places__list-item" id="${place.id}">
       <div class="flex-container">
         <h1 class="list-item__title">${title}</h1>
-        <div class="list-item__favorite-icon">
+        <div class="${favoriteIconClassList.join(' ')}">
           <svg
             width="18" 
             height="18" 

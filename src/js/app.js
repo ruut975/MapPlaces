@@ -6,7 +6,6 @@ const apiUrl = "https://us-central1-map-places-311d1.cloudfunctions.net/places"
 
 // loading places
 const places = await Places.loadPlaces(apiUrl)
-console.log(places);
 
 // Map Controller
 
@@ -26,39 +25,11 @@ Map.onMapDragend();
 // Attaching event listeners
 
 const sideDrawer = document.querySelector(".side-drawer");
-
 const sideDrawerContent = document.querySelector(".side-drawer__content");
 const sideDrawerContentFullPlace = document.querySelector(
   ".side-drawer__content--full-place"
 );
 const placesList = document.querySelector(".places__list");
-
-const addElementClass = (element, className) => {
-  if (element) {
-    if (className) {
-      element.classList.add(className);
-    } else {
-      throw new Error("addElementClass: second argument missing");
-    }
-  } else {
-    throw new Error("addElementClass: first argument missing");
-  }
-};
-
-const removeElementClass = (element, className) => {
-  if (element) {
-    if (className) {
-      element.classList.remove(className);
-    } else {
-      throw new Error(
-        "removeElementClass: second argument missing"
-      );
-    }
-  } else {
-    throw new Error("removeElementClass: first argument missing");
-  }
-};
-
 const addPlaceButton = document.querySelector(".add-place__button");
 const filtersMenuButton = document.querySelector(".filters__menu-button");
 const sideDrawerToggleButton = document.querySelector(
@@ -74,14 +45,21 @@ const editPlaceSubmitButton = document.querySelector(
   ".edit-place__submit-button"
 );
 
-// const sideDrawerContentPlaces = document.querySelector(".side-drawer__places");
-// const sideDrawerContentFullPlace = document.querySelector(
-//   ".side-drawer__full-place"
-// );
 const addPlace = document.querySelector(".add-place");
 const editPlaceSection = document.querySelector(".edit-place");
 const categories = document.querySelector(".categories");
 const search = document.querySelector(".search");
+
+const removeElementClass = (element, className) => {
+  if (element) {
+    if (className) {
+      element.classList.remove(className);
+    }
+  } else {
+    throw new Error("removeElementClass: first argument missing");
+  }
+};
+
 
 addPlaceButton.addEventListener("click", () => {
   editPlaceSection.classList.add("edit-place--show");
@@ -94,8 +72,13 @@ filtersMenuButton.addEventListener("click", () => {
 });
 
 sideDrawerToggleButton.addEventListener("click", () => {
-  sideDrawer.classList.toggle("side-drawer--show");
-  sideDrawerContent.classList.toggle("side-drawer__content--show-places");
+  if(sideDrawer.classList.contains("side-drawer--show")) {
+    sideDrawer.classList.remove("side-drawer--show");
+    sideDrawerContent.classList.remove("side-drawer__content--show-places");
+  } else {
+    sideDrawer.classList.add("side-drawer--show");
+    sideDrawerContent.classList.add("side-drawer__content--show-places");
+  }
   addPlace.classList.remove("add-place--show");
 });
 
@@ -118,8 +101,6 @@ const attachPlacesViewListeners = () => {
 
 Places.renderPlaces(places, placesList)
 attachPlacesViewListeners();
-
-// Places.showPlaces(placesList, places);
 
 export const attachFullPlaceViewListeners = () => {
   const placeBackButton = document.querySelector(".place__back-button");
@@ -147,7 +128,6 @@ export const attachFullPlaceViewListeners = () => {
 
 editPlaceSubmitButton.addEventListener("click", () => {
   const form = document.querySelector('edit-place__form');
-  console.log(form);
   Place.addPlace(form);
   editPlaceSection.classList.remove("edit-place--show");
   sideDrawer.classList.remove("side-drawer--show");
@@ -165,22 +145,3 @@ editPlaceCancelButton.addEventListener("click", () => {
 editPlaceRemoveButton.addEventListener("click", () => {
   confirm("Are you sure you want to remove item permanently?");
 });
-
-const searchBox = document.getElementsByClassName("searchBox");
-// const placesList = document.getElementsByClassName("places");
-const toggleList = document.getElementsByClassName("toggle_places");
-
-// //show places list when clicking search box
-// searchBox.addEventListener("focus", () => {
-//   Places.showPlacesList(placesList);
-// });
-
-// //hide places list when clicking toggleList button
-// toggleList.addEventListener("click", () => {
-//   Places.hidePlacesList(placesList);
-// });
-
-//render list of Places
-// const placesListEl = document.getElementsByClassName("places_list");
-
-// Places.renderListOfPlaces(places, placesListEl);

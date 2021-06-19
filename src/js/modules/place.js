@@ -48,6 +48,10 @@ const renderPlace = (place, element) => {
   if (place) {
     const title = place.title;
     const description = place.description;
+    let favoriteIconClassList = ["place__favorite-button"];
+      if (place.favorite == true) {
+        favoriteIconClassList.push("place__favorite-button--selected");
+      }
     htmlPlaceTemplate = `
      <div class="place">
      <div class="place__back">
@@ -63,7 +67,7 @@ const renderPlace = (place, element) => {
      <div class="flex-container">
        <h1 class="place__title">${title}</h1>
        <div class="place__favorite">
-         <button class="place__favorite-button place__favorite-button--selected">
+         <button class="${favoriteIconClassList.join(' ')}">
            <svg
              width="18" 
              height="18" 

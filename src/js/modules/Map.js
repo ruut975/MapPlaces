@@ -23,7 +23,6 @@ export const initMap = () => {
 };
 
 export const renderAllPlacesMarkers = (places) => {
-  console.log(places);
   if (places) {
     const markers = places.map((place) => {
       const infoWindowContent = `<div id="content">
@@ -68,7 +67,7 @@ const saveCoords = (coords) => {
   console.log(markerCoords);
 };
 
-const centerMapToCoords = (coords) => {
+export const centerMapToCoords = (coords) => {
   map.panTo(coords);
 };
 
@@ -97,7 +96,7 @@ export const setMarkerClickListener = (marker, infoWindow) => {
   marker.addListener("click", () => {
     map.setZoom(12);
     map.setCenter(marker.getPosition());
-    infoWindow.open(map, marker);
+    if (infoWindow ) infoWindow.open(map, marker);
   });
 };
 
